@@ -1,9 +1,8 @@
-/.bundle/
-/.yardoc
-/Gemfile.lock
-/_yardoc/
-/coverage/
-/doc/
-/pkg/
-/spec/reports/
-/tmp/
+require_relative './upcoming-movies/version'
+
+module UpcomingMovies
+    # Your code goes here...
+  end
+end
+
+require_relative './upcoming-movie/cli'

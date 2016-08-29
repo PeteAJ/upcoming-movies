@@ -1,6 +1,2 @@
-require "upcoming-movies/version"
-
-module UpcomingMovies
-    # Your code goes here...
-  end
-end
+require_relative './upcoming-movies/version'
+require_relative './upcoming-movies/cli'

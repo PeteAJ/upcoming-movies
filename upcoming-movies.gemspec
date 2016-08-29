@@ -1,17 +1,17 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'upcoming/movies/version'
+require 'upcoming-movies/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "upcoming-movies"
-  spec.version       = Upcoming::Movies::VERSION
-  spec.authors       = ["TODO: Write your name"]
-  spec.email         = ["<github email address>"]
+  spec.version       = UpcomingMovies::VERSION
+  spec.authors       = ["PeteAJ"]
+  spec.email         = ["peter.jacobson@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{Look up upcoming movie dates!}
+  spec.description   = %q{This gem lets you access a list of upcoming movie releases.}
+  spec.homepage      = "https://github.com/PeteAJ/upcoming-movies"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
