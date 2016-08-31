@@ -13,15 +13,17 @@ class UpcomingMovies::CLI
   end
 
   def menu
-    puts "enter the number of the movie you would like to learn more about"
     input = nil
     while input != "exit"
+      puts "enter the number of the movie you would like to learn more about"
     input = gets.strip.downcase
-    case input
-    when "1"
-      puts "more info on 1..."
-    when "2"
-      puts "more info on 2..."
+    if input.to_i > 0
+      puts @movies[input.to_i-1]
+      elseif input == "list"
+      list_movies
+    else
+      puts "Not sure what you want here"
+    end
     end
   end
 
