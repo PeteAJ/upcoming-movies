@@ -3,10 +3,10 @@ class UpcomingMovies::Movies
 
   def self.today
     #return instances of movies
-      puts <<-DOC
-    1. The Disappointments Room
-    2. Sully
-    DOC
+     # puts <<-DOC
+    #1. The Disappointments Room
+    #2. Sully
+    #DOC
 
   movie_1 = self.new
   movie_1.name = "The Disappointments Room"
