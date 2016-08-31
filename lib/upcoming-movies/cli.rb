@@ -8,10 +8,8 @@ class UpcomingMovies::CLI
 
   def list_movies
     puts "Upcoming Movies"
-    puts <<-DOC
-    1. movie1
-    2. movie2
-    DOC
+  
+    @movies = UpcomingMovies::Movies.today
   end
 
   def menu
