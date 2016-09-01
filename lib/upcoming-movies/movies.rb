@@ -19,26 +19,8 @@ end
       movies = []
 
       movies << self.scrape_imdb
-#go to boxoffice mooho, find the upcoming movie
-#extract properties
-#instantiate a movie
 
-  movie_1 = self.new
-  movie_1.name = "When the Bough Breaks"
-  movie_1.date = "Friday, September 9, 2016"
-  movie_1.length = "107 min"
-  movie_1.genre = "horror"
-   movie_1.outline = "a story about.."
-
-  movie_2 = self.new
-  movie_2.name = "Sully"
-  movie_2.date = "Friday, September 9, 2016"
-  movie_2.length = "96 min"
-  movie_2.genre = "romantic comedy"
-   movie_2.outline = "the story of"
-
-
-[movie_1, movie_2]
+      movies
   end
 
   def self.scrape_imdb
