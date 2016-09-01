@@ -10,8 +10,9 @@ class UpcomingMovies::CLI
     puts "Upcoming Movies" 
     @movies = UpcomingMovies::Movies.today
     @movies.each.with_index(1) do |movie, i|
-        puts "#{i} comes out on #{movie.date} in #{movie.release} release from #{movie.distributor}."
+        puts "#{i} comes out on #{movie.date}. It's #{movie.length} and rated #{movie.rating}."
       end
+  
   end
 
   def menu
@@ -21,7 +22,7 @@ class UpcomingMovies::CLI
     input = gets.strip.downcase
     if input.to_i > 0
       the_movie = @movies[input.to_i-1]
-      puts "#{i} comes out on #{the_movie.date} in #{the_movie.release} release from #{the_movie.distributor}."
+      puts "#{i} comes out on #{movie.date}. It's #{movie.length} and rated #{movie.rating}."
       elsif input == "list"
       list_movies
     else
