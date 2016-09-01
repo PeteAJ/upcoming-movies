@@ -8,11 +8,13 @@ class UpcomingMovies::CLI
 
   def list_movies
     puts "Upcoming Movies" 
+
     @movies = UpcomingMovies::Movies.today
+
     @movies.each.with_index(1) do |movie, i|
-        puts "#{i} comes out on #{movie.date}. It's #{movie.length} and a #{movie.genre} movie."
-        puts "Description: #{movie.outline}"
+        puts "#{i}. #{movie.name} comes out on #{movie.date}. It's #{movie.length} and a #{movie.genre} movie."
       end
+    
   
   end
 
@@ -22,9 +24,10 @@ class UpcomingMovies::CLI
       puts "enter the number of the movie you would like to learn more about"
     input = gets.strip.downcase
     if input.to_i > 0
-      the_movie = @movies[input.to_i-1]
-      puts "#{i} comes out on #{movie.date}. It's #{movie.length} and a #{movie.genre} movie."
-       puts "Description: #{movie.outline}"
+      @movies = UpcomingMovies::Movies.today
+    @movies.each.with_index(1) do |movie, i|
+    puts "Description: #{movie.outline}"
+  end
       elsif input == "list"
       list_movies
     else
