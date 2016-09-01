@@ -1,5 +1,5 @@
 class UpcomingMovies::Movies
-  attr_accessor :name, :date, :length, :url
+  attr_accessor :name, :date, :length, :genre, :outline
 
   def self.today
     #return instances of movies
@@ -26,16 +26,16 @@ end
   movie_1 = self.new
   movie_1.name = "When the Bough Breaks"
   movie_1.date = "Friday, September 9, 2016"
-  movie_1.rating = "PG-13"
   movie_1.length = "107 min"
-  movie_1.url = "http://www.imdb.com/title/tt1389139/?ref_=cs_ov_tt"
+  movie_1.genre = "horror"
+   movie_1.outline = "a story about.."
 
   movie_2 = self.new
   movie_2.name = "Sully"
   movie_2.date = "Friday, September 9, 2016"
-  movie_2.rating = "PG-13"
   movie_2.length = "96 min"
-  movie_2.url = "http://www.imdb.com/title/tt3263904/?ref_=cs_ov_tt"
+  movie_2.genre = "romantic comedy"
+   movie_2.outline = "the story of"
 
 
 [movie_1, movie_2]
@@ -46,6 +46,9 @@ end
     name = doc.search("td.overview-top h4 a").text
     date = doc.search("h4.li_group a")[0].text
     length = doc.search("time").text
+    genre = doc.search("td.overview-top p span:nth-child(1)")[0].text
+    outline = doc.search("tr td div.outline")[0].text
+
     binding.pry
   end
 
