@@ -10,10 +10,14 @@ class UpcomingMovies::CLI
     puts "Upcoming Movies" 
 
     @movies = UpcomingMovies::Movies.today
-
-    @movies.each.with_index(1) do |movie, i|
-        puts "#{i}. #{movie.name} comes out on #{movie.date}. It's #{movie.length} and a #{movie.genre} movie."
+array = [0,1, 2, 3, 4, 5, 6]
+array.each { |x|
+    @movies.each.with_index(x) do |movie, i|
+       puts "#{i}. #{movie.name} comes out on #{movie.date}. It's #{movie.length} and a #{movie.genre} movie."
+   
       end
+    }
+
     
   
   end
@@ -37,7 +41,7 @@ class UpcomingMovies::CLI
   end
 
 def goodbye 
-  puts "see you tomorrow for updated information"
+  puts "see you next for updated movie information"
 end
 
 end

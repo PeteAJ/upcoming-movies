@@ -34,12 +34,13 @@ end
     movie.genre = doc.search("td.overview-top p span:nth-child(1)")[0].text
     movie.outline = doc.search("tr td div.outline")[0].text
     movie
+  
+
 
     #binding.pry
    
-
   end
 
- 
+  
 
 end
