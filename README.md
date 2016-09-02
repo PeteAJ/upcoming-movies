@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+This gem let's you see movies that are not out in theaters but will be shortly. Type the number of the movie you are interested in to read a description. Type another item number or exit at any time. "We'll see you at the movies" - Roger Ebert
 
 ## Development
 
