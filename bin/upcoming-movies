@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
  
 require 'bundler/setup'
-require 'upcoming-movies'
+require_relative '../lib/upcoming-movies'
 
 UpcomingMovies::CLI.new.call
+

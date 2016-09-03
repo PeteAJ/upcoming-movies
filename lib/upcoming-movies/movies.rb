@@ -1,5 +1,17 @@
+require 'pry'
 class UpcomingMovies::Movies
   attr_accessor :name, :date, :length, :genre, :outline
+
+  @@all = []
+
+  def initialize(attributes ={})
+    @name = attriubtes[:name]
+    @date =
+    @length =
+    @genre =
+    @outline = 
+    @@all << self
+  end
 
   def self.today
     #return instances of movies
@@ -25,15 +37,19 @@ end
 
 
   def self.scrape_imdb
+    binding.pry
     doc = Nokogiri::HTML(open("http://www.imdb.com/movies-coming-soon/?ref_=nv_mv_cs_4"))
+    list_of_movies = doc.search("div.list.detail div.list_item")
+    list_of_movies.each do |data|
+
+    self.new({
+      name: data.css("td.overview-top h4 a").text
+      movie.date = data.css("h4.li_group a").text
+      movie.length = data.css("time").text
+      movie.genre = data.css("td.overview-top p span:nth-child(1)").text
+      movie.outline = data.css("tr td div.outline").text
+    })
     
-    movie = self.new
-    movie.name = doc.search("td.overview-top h4 a")[0].text
-    movie.date = doc.search("h4.li_group a")[0].text
-    movie.length = doc.search("time")[0].text
-    movie.genre = doc.search("td.overview-top p span:nth-child(1)")[0].text
-    movie.outline = doc.search("tr td div.outline")[0].text
-    movie
   
 
 

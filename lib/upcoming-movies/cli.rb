@@ -22,6 +22,8 @@ array.each { |x|
   
   end
 
+
+
   def menu
     input = nil
     while input != "exit"
@@ -31,6 +33,7 @@ array.each { |x|
       @movies = UpcomingMovies::Movies.today
     @movies.each.with_index(1) do |movie, i|
     puts "Description: #{movie.outline}"
+    puts "Type 'exit' to quit."
   end
       elsif input == "list"
       list_movies
