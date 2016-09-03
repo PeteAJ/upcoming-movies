@@ -27,7 +27,7 @@ array.each { |x|
     while input != "exit"
       puts "enter the number of the movie you would like to learn more about"
     input = gets.strip.downcase
-    if input.to_i > 0
+    if input.to_i > 0 && input.to_i <= 7
       @movies = UpcomingMovies::Movies.today
     @movies.each.with_index(1) do |movie, i|
     puts "Description: #{movie.outline}"
