@@ -5,39 +5,30 @@ class UpcomingMovies::Movies
   @@all = []
 
   def initialize(attributes ={})
-    @name = attriubtes[:name]
-    @date = attriubtes[:date]
-    @length = attriubtes[:length]
-    @genre = attriubtes[:genre]
-    @outline = attriubtes[:outline]
+    @name = attributes[:name]
+    @date = attributes[:date]
+    @length = attributes[:length]
+    @genre = attributes[:genre]
+    @outline = attributes[:outline]
     @@all << self
   end
 
-  def self.list_movies
-    #return instances of movies
-     # puts <<-DOC
-    #1. The Disappointments Room
-    #2. Sully
-    #DOC
+ 
+  def self.all
+    @@all
+  end
 
-    #scrape box office mojo for movie release data
-    #UpcomingMovies::Movies.new.movies
-    #self.scrape_movies
-end
+  def self.scrape_imdb
+     UpcomingMovies::Movies.new.movies
+    self.scrape_movies
 
-
-
-    def self.scrape_movies
-      movies = []
+     movies = []
 
       movies << self.scrape_imdb
 
       movies
-  end
 
 
-  def self.scrape_imdb
-    
     doc = Nokogiri::HTML(open("http://www.imdb.com/movies-coming-soon/?ref_=nv_mv_cs_4"))
     list_of_movies = doc.search("div.list.detail div.list_item")
     list_of_movies.each do |data|
