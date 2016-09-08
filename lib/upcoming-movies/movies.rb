@@ -11,29 +11,32 @@ class UpcomingMovies::Movies
     @genre = attributes[:genre]
     @outline = attributes[:outline]
     @@all << self
+    
   end
 
  
   def self.all
     @@all
+    self.scrape_movies
+  end
+
+
+  def self.scrape_movies
+    movies = []
+    movies << self.scrape_imdb
+
+    movies
+
   end
 
   def self.scrape_imdb
-     UpcomingMovies::Movies.new.movies
-    self.scrape_movies
-
-     movies = []
-
-      movies << self.scrape_imdb
-
-      movies
 
 
     doc = Nokogiri::HTML(open("http://www.imdb.com/movies-coming-soon/?ref_=nv_mv_cs_4"))
     list_of_movies = doc.search("div.list.detail div.list_item")
     list_of_movies.each do |data|
 
-    self.new({
+    movie = self.new({
       name: data.css("td.overview-top h4 a").text,
       date: data.css("h4.li_group a").text,
       length: data.css("time").text,
@@ -41,6 +44,8 @@ class UpcomingMovies::Movies
       outline: data.css("tr td div.outline").text
     })
     
+    movie
+
   end
 
 
