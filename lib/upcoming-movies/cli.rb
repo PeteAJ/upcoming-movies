@@ -8,21 +8,22 @@ class UpcomingMovies::CLI
 
   def list_movies
     #binding.pry
-    x = nil
+   
     puts "Upcoming Movies" 
     @movies = UpcomingMovies::Movies.all
-    @movies.each.with_index(x) do |movie, i|
+    @movies.each.with_index(1) do |movie, i|
        puts "#{i}. #{movie.name} comes out on #{movie.date}. It's #{movie.length} and a #{movie.genre} movie."
     end
   end
 
   def menu
     input = nil
+     x = nil
     while input != "exit"
     input = gets.strip.downcase
-    if input.to_i > 0 && input.to_i <= 7
-     UpcomingMovies::CLI.all.each.with_index(1) do |movie, i|
-    puts "Description: #{movie.outline}"
+    if input.to_i < 24
+     @movies.each.with_index(1) do |movie, input|
+    puts "Description: #{input.movie.outline}"
     puts "Type 'exit' to quit."
     end
       elsif input == "list"
